@@ -63,7 +63,7 @@
         <span></span>
       </div>
       <nav class="navegacion-principal clearfix">
-        <a href="#">Conferencia</a>
+        <a href="conferencias.html">Conferencia</a>
         <a href="#">Calendario</a>
         <a href="#">Invitados</a>
         <a href="registro.html">Reservaciones</a>
@@ -102,7 +102,6 @@
               <p><i class="fa-solid fa-calendar"></i> 10 Enero</p>
               <p><i class="fa-solid fa-user"></i> Matías</p>
             </div>
-
             <div class="detalle-evento">
               <h3>Responsive Web Design</h3>
               <p><i class="fa-solid fa-clock"></i> 21:00hs</p>
@@ -110,8 +109,40 @@
               <p><i class="fa-solid fa-user"></i> Matías</p>
             </div>
             <a href="#" class="boton float-right">Ver Todos</a>
+          </div><!--#talleres-->
 
-          </div> <!--#talleres-->
+
+            <div id="conferencias" class="info-curso ocultar clearfix">
+              <div class="detalle-evento">
+                <h3>Como ser freelancer</h3>
+                <p><i class="fa-solid fa-clock"></i> 10:00hs</p>
+                <p><i class="fa-solid fa-calendar"></i> 10 Enero</p>
+                <p><i class="fa-solid fa-user"></i> Gregorio</p>
+              </div>
+              <div class="detalle-evento">
+                <h3>Tecnologías del futuro</h3>
+                <p><i class="fa-solid fa-clock"></i> 17:00hs</p>
+                <p><i class="fa-solid fa-calendar"></i> 10 Enero</p>
+                <p><i class="fa-solid fa-user"></i> Susan</p>
+              </div>
+              <a href="#" class="boton float-right">Ver Todos</a>
+            </div> <!--#conferencias-->
+
+            <div id="seminarios" class="info-curso ocultar clearfix">
+              <div class="detalle-evento">
+                <h3>Diseño UI/UX para móviles</h3>
+                <p><i class="fa-solid fa-clock"></i> 70:00hs</p>
+                <p><i class="fa-solid fa-calendar"></i> 11 Enero</p>
+                <p><i class="fa-solid fa-user"></i> Halorld</p>
+              </div>
+              <div class="detalle-evento">
+                <h3>Tecnologías del futuro</h3>
+                <p><i class="fa-solid fa-clock"></i> 10:00hs</p>
+                <p><i class="fa-solid fa-calendar"></i> 11 Enero</p>
+                <p><i class="fa-solid fa-user"></i> Susana</p>
+              </div>
+              <a href="#" class="boton float-right">Ver Todos</a>
+            </div> <!--#seminarios-->
         </div> <!--.programa-evento-->
       </div><!--.contenedor-->
     </div><!--.contenido-programa-->
@@ -162,10 +193,10 @@
   <div class="contador parallax">
     <div class="contenedor">
       <ul class="resumen-evento clearfix">
-        <li><p class="numero">6</p> Invitados</li>
-        <li><p class="numero">15</p> Talleres</li>
-        <li><p class="numero">3</p> Dias</li>
-        <li><p class="numero">9</p> Conferencias</li>
+        <li><p class="numero"></p> Invitados</li>
+        <li><p class="numero"></p> Talleres</li>
+        <li><p class="numero"></p> Dias</li>
+        <li><p class="numero"></p> Conferencias</li>
       </ul>
     </div>
   </div>
@@ -260,10 +291,10 @@
     <h2>Faltan</h2>
     <div class="cuenta-regresiva contenedor">
       <ul class="clearfix">
-        <li><p class="numero">80</p> días</li>
-        <li><p class="numero">15</p> horas</li>
-        <li><p class="numero">5</p> minutos</li>
-        <li><p class="numero">30</p> segundos</li>
+        <li><p id="dias" class="numero"></p> días</li>
+        <li><p id="horas" class="numero"></p> horas</li>
+        <li><p id="minutos" class="numero"></p> minutos</li>
+        <li><p id="segundos" class="numero"></p> segundos</li>
       </ul>
     </div>
     }
@@ -302,9 +333,16 @@
     Todos los derechos reservados BSAWEBCAMP 2022
   </p>
 
+  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.lettering.js"></script>
+  
   <script src="js/main.js"></script>
+  
+  
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
