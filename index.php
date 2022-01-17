@@ -18,106 +18,94 @@
       <div class="contenedor">
         <div class="programa-evento">
           <h2>Programa del evento</h2>
+
+          <?php
+            try{
+                require_once('includes/funciones/bd_conexion.php'); //Se crea la conexion
+                $sql = " SELECT * FROM `categoria_evento` "; //Se hace la consulta
+                $resultado = $conn->query($sql); //Se consulta la base de datos
+            } catch(\Exception $e){
+                echo $e->getMessage();
+            }
+
+          ?>
+
           <nav class="menu-programa">
-            <a href="#talleres"><i class="fa-solid fa-code"></i> Talleres</a>
-            <a href="#conferencias"><i class="fa-solid fa-comment"></i> Conferencias</a>
-            <a href="#seminarios"><i class="fa-solid fa-university"></i> Seminarios</a>
+            <?php while($cat = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
+              <?php $categoria = $cat['cat_evento']; ?>
+              <a href="#<?php echo strtolower($categoria); ?>">
+                <i class="fa-solid <?php echo $cat['icono']; ?>"></i> <?php echo $categoria; ?> 
+              </a>
+            <?php } ?>
           </nav>
 
-          <div id="talleres" class="info-curso ocultar clearfix">
-            <div class="detalle-evento">
-              <h3>HTML5, CSS3 y JavaScript</h3>
-              <p><i class="fa-solid fa-clock"></i> 17:00hs</p>
-              <p><i class="fa-solid fa-calendar"></i> 10 Enero</p>
-              <p><i class="fa-solid fa-user"></i> Matías</p>
-            </div>
-            <div class="detalle-evento">
-              <h3>Responsive Web Design</h3>
-              <p><i class="fa-solid fa-clock"></i> 21:00hs</p>
-              <p><i class="fa-solid fa-calendar"></i> 10 Enero</p>
-              <p><i class="fa-solid fa-user"></i> Matías</p>
-            </div>
-            <a href="#" class="boton float-right">Ver Todos</a>
-          </div><!--#talleres-->
+          <?php
+            try{
+                require_once('includes/funciones/bd_conexion.php'); //Se crea la conexion
+                $sql = " SELECT evento_id, nombre, fecha_evento, hora_evento, cat_evento, icono, nombre_invitado, apellido_invitado "; //Se hace la consulta
+                $sql .= " FROM `eventos` ";
+                $sql .= " INNER JOIN categoria_evento ";
+                $sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
+                $sql .= " INNER JOIN invitados ";
+                $sql .= " ON eventos.id_cat_evento = invitados.invitado_id ";
+                $sql .= " AND eventos.id_cat_evento = 1 ";
+                $sql .= " ORDER BY evento_id LIMIT 2;";
+                $sql .= " SELECT evento_id, nombre, fecha_evento, hora_evento, cat_evento, icono, nombre_invitado, apellido_invitado "; //Se hace la consulta
+                $sql .= " FROM `eventos` ";
+                $sql .= " INNER JOIN categoria_evento ";
+                $sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
+                $sql .= " INNER JOIN invitados ";
+                $sql .= " ON eventos.id_cat_evento = invitados.invitado_id ";
+                $sql .= " AND eventos.id_cat_evento = 2 ";
+                $sql .= " ORDER BY evento_id LIMIT 2;";
+                $sql .= " SELECT evento_id, nombre, fecha_evento, hora_evento, cat_evento, icono, nombre_invitado, apellido_invitado "; //Se hace la consulta
+                $sql .= " FROM `eventos` ";
+                $sql .= " INNER JOIN categoria_evento ";
+                $sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
+                $sql .= " INNER JOIN invitados ";
+                $sql .= " ON eventos.id_cat_evento = invitados.invitado_id ";
+                $sql .= " AND eventos.id_cat_evento = 3 ";
+                $sql .= " ORDER BY evento_id LIMIT 2;";
+              
+                //$resultado = $conn->query($sql); //Se consulta la base de datos
+            } catch(\Exception $e){
+                echo $e->getMessage();
+            }
+          ?>
 
+          <?php $conn->multi_query($sql); ?>
+          <?php
+            do{
+              $resultado = $conn->store_result();
+              $row = $resultado->fetch_all(MYSQLI_ASSOC); ?>
+              <?php $i = 0; ?>
 
-            <div id="conferencias" class="info-curso ocultar clearfix">
-              <div class="detalle-evento">
-                <h3>Como ser freelancer</h3>
-                <p><i class="fa-solid fa-clock"></i> 10:00hs</p>
-                <p><i class="fa-solid fa-calendar"></i> 10 Enero</p>
-                <p><i class="fa-solid fa-user"></i> Gregorio</p>
-              </div>
-              <div class="detalle-evento">
-                <h3>Tecnologías del futuro</h3>
-                <p><i class="fa-solid fa-clock"></i> 17:00hs</p>
-                <p><i class="fa-solid fa-calendar"></i> 10 Enero</p>
-                <p><i class="fa-solid fa-user"></i> Susan</p>
-              </div>
-              <a href="#" class="boton float-right">Ver Todos</a>
-            </div> <!--#conferencias-->
-
-            <div id="seminarios" class="info-curso ocultar clearfix">
-              <div class="detalle-evento">
-                <h3>Diseño UI/UX para móviles</h3>
-                <p><i class="fa-solid fa-clock"></i> 7:00hs</p>
-                <p><i class="fa-solid fa-calendar"></i> 11 Enero</p>
-                <p><i class="fa-solid fa-user"></i> Halorld</p>
-              </div>
-              <div class="detalle-evento">
-                <h3>Tecnologías del futuro</h3>
-                <p><i class="fa-solid fa-clock"></i> 10:00hs</p>
-                <p><i class="fa-solid fa-calendar"></i> 11 Enero</p>
-                <p><i class="fa-solid fa-user"></i> Susana</p>
-              </div>
-              <a href="#" class="boton float-right">Ver Todos</a>
-            </div> <!--#seminarios-->
+              <?php foreach($row as $evento): ?>
+                <?php if($i % 2 == 0) { ?>
+                  <div id="<?php echo strtolower($evento['cat_evento']); ?>" class="info-curso ocultar clearfix">
+                <?php } ?>
+                    <div class="detalle-evento">
+                      <h3><?php echo $evento['nombre']; ?></h3>
+                      <p><i class="fa-solid fa-clock"></i> <?php echo $evento['hora_evento'];?> </p>
+                      <p><i class="fa-solid fa-calendar"></i> <?php echo $evento['fecha_evento'];?> </p>
+                      <p><i class="fa-solid fa-user"></i> <?php echo $evento['nombre_invitado'] . " " . $evento['apellido_invitado'];?> </p>
+                    </div>
+                    
+                <?php if($i % 2 == 1): ?>   
+                  <a href="calendario.php" class="boton float-right">Ver Todos</a>
+                  </div><!--#talleres-->
+                <?php endif; ?>
+                <?php $i++; ?>
+              <?php endforeach; ?>
+              <?php $resultado->free(); ?>
+            <?php } while($conn->more_results() && $conn->next_result());?>   
         </div> <!--.programa-evento-->
       </div><!--.contenedor-->
     </div><!--.contenido-programa-->
   </section><!--.programa-->
 
-  <section class="invitados contenedor seccion">
-    <h2>Invitados</h2>
-    <ul class="lista-invitados clearfix">
-      <li>
-        <div class="invitado">
-          <img src="img/invitado1.jpg" alt="imagen invitado">
-          <p>Rafael Bautista</p>
-        </div>
-      </li>
-      <li>
-        <div class="invitado">
-          <img src="img/invitado2.jpg" alt="imagen invitado">
-          <p>Shari Herrera</p>
-        </div>
-      </li>
-      <li>
-        <div class="invitado">
-          <img src="img/invitado3.jpg" alt="imagen invitado">
-          <p>Gregorio Sanchez</p>
-        </div>
-      </li>
-      <li>
-        <div class="invitado">
-          <img src="img/invitado4.jpg" alt="imagen invitado">
-          <p>Susana Rivera</p>
-        </div>
-      </li>
-      <li>
-        <div class="invitado">
-          <img src="img/invitado5.jpg" alt="imagen invitado">
-          <p>Harold Garcia</p>
-        </div>
-      </li>
-      <li>
-        <div class="invitado">
-          <img src="img/invitado6.jpg" alt="imagen invitado">
-          <p>Susan Sanchez</p>
-        </div>
-      </li>
-    </ul>
-  </section>
+  
+  <?php include_once 'includes/templates/invitados.php'; ?>
 
   <div class="contador parallax">
     <div class="contenedor">

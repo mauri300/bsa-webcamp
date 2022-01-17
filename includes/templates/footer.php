@@ -38,11 +38,13 @@
   <script src="js/jquery.countdown.min.js"></script>
   <script src="js/jquery.lettering.js"></script>
   
+  
   <?php
     $archivo = basename($_SERVER['PHP_SELF']);
     $pagina = str_replace(".php", "", $archivo);
-    if($pagina == 'index'){
+    if($pagina == 'invitados' || $pagina == 'index'){  
       echo '<script src="js/jquery.waypoints.js"></script>';
+      echo '<script src="js/jquery.colorbox-min.js"></script>';
     } else if($pagina == 'conferencias'){
       echo '<script src="js/lightbox.js"></script>';
     }
