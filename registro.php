@@ -1,78 +1,9 @@
-<!doctype html>
-<html class="no-js" lang="">
-
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
-
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Oswald:wght@300;400;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
-
-  <meta name="theme-color" content="#fafafa">
-</head>
-
-<body>
-
-  <header class="site-header">
-    <div class="hero">
-      <div class="contenido-header">
-        <nav class="redes-sociales">
-          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
-          <a href="#"><i class="fa-brands fa-youtube"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        </nav>
-        <div class="informacion-evento">
-          <div class="clearfix">
-            <p class="fecha"><i class="fa-solid fa-calendar"></i> 10-12 Dic</p>
-            <p class="ciudad"><i class="fa-solid fa-location-dot"></i> Buenos Aires, ARG</p>
-          </div>
-          <h1 class="nombre-sitio">BSAWebCamp</h1>
-          <p class="slogan">Conferencias sobre <span>diseño web</span></p>
-        </div>
-        
-      </div>
-    </div>
-  </header>
-
-  <div class="barra">
-    <div class="contenedor clearfix">
-      <div class="logo">
-        <img src="img/logo.svg" alt="Logo">
-      </div>
-      <div class="menu-movil">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <nav class="navegacion-principal clearfix">
-        <a href="#">Conferencia</a>
-        <a href="#">Calendario</a>
-        <a href="#">Invitados</a>
-        <a href="registro.html">Reservaciones</a>
-      </nav>
-    </div><!--.contenedor-->
-  </div> <!--barra-->
+<?php include_once 'includes/templates/header.php'; ?>
 
   
   <section class="seccion contenedor">
+ 
+    <h2>Calendario de Eventos</h2>
     <h2>Registro</h2>
     <form id="registro" action="index.html" class="registro" method="post">
         <div id="datos_usuario" class="registro caja clearfix">
@@ -266,49 +197,4 @@
 
 
 
-  <footer class="site-footer">
-    <div class="contenedor clearfix">
-      <div class="footer-informacion">
-        <h3>Sobre <span>BSAWebCamp</span></h3>
-        <p>Aliquam erat volutpat. Vestibulum rhoncus tortor eu dui ornare, a gravida justo aliquam. Pellentesque eleifend lacinia ipsum vel ullamcorper. Proin mollis hendrerit condimentum.</p>
-          
-      </div>
-      <div class="ultimos-tweets">
-        <h3>Ultimos <span>tweets</span></h3>
-        <ul>
-          <li>Aliquam erat volutpat. Vestibulum rhoncus tortor eu dui ornare, a gravida justo aliquam.</li>
-          <li>Aliquam erat volutpat. Vestibulum rhoncus tortor eu dui ornare, a gravida justo aliquam.</li>
-          <li>Aliquam erat volutpat. Vestibulum rhoncus tortor eu dui ornare, a gravida justo aliquam.</li>
-
-        </ul>
-      </div>
-      <div class="menu">
-        <h3>Redes <span>sociales</span></h3>
-        <nav class="redes-sociales">
-          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
-          <a href="#"><i class="fa-brands fa-youtube"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        </nav>
-      </div>
-    </div>
-  </footer>
-
-  <p class="copyright">
-    Todos los derechos reservados BSAWEBCAMP 2022
-  </p>
-
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
-</body>
-
-</html>
+  <?php include_once 'includes/templates/footer.php'; ?>
