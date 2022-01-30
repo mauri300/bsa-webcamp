@@ -124,8 +124,7 @@ body{
 
 .seccion{
   padding: 30px 0;
-}
-.seccion p{
+}.seccion p{
   font-size: 1.2em;
   text-align: center;
 }
@@ -165,23 +164,18 @@ h3{
   display: inline-block;
   transition: all .3s ease;
   border: 2px solid #fe4918;
-}
-.boton.hollow,
+}.boton.hollow,
 .boton.hollow:hover{
   background-color: white;
   color: #fe4918;
-}
-.boton.transparente{
+}.boton.transparente{
   background-color: transparent;
   border: 2px solid white;
-}
-.boton.transparente:hover{
+}.boton.transparente:hover{
   border: 2px solid #fe4918
-}
-.boton:hover{
+}.boton:hover{
   background-color: #e33000;
-}
-.float-right{
+}.float-right{
   float: right;
 }
 
@@ -324,8 +318,7 @@ h1.nombre-sitio{
 div.barra{
   background-color: #353535;
   padding: 20px 0;
-}
-.fixed{
+}.fixed{
   position: fixed;
   width: 100%; 
   top: 0;
@@ -904,19 +897,15 @@ div.paquetes .tabla-precio input{
     float: left;
     width: 33.3%;
   }
-}
-.contenido-dia > div p{
+}.contenido-dia > div p{
   text-align: left;
   font-weight: bold;
-}
-.contenido-dia > div label{
+}.contenido-dia > div label{
   display: block;
   margin-bottom: 10px;
-}
-.contenido-dia > div input{
+}.contenido-dia > div input{
   margin-right: 10px;
-}
-.contenido-dia > div label time{
+}.contenido-dia > div label time{
   color: #fe4918;
   font-weight: bold;
 }
