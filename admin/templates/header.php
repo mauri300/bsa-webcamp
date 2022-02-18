@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="css/select2.min.css">
+  <link rel="stylesheet" href="css/fontawesome-iconpicker.min.css">
+  
   <!-- Bootstrap time Picker -->
   <link rel="stylesheet" href="css/bootstrap-timepicker.min.css">
   <!-- Theme style -->
