@@ -6,7 +6,8 @@
       <div class="user-panel">
        
         <div class="info">
-          <p>Administrador</p>
+         
+          <p><?php echo $_SESSION['nombre']; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -18,7 +19,7 @@
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                 </button>
               </span>
-        </div>
+        </div> 
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -36,16 +37,18 @@
           </ul>
         </li>
 
+        
         <li class="treeview">
           <a href="#">
             <i class="fa fa-calendar"></i>
             <span>Eventos</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
-            <li><a href="#"><i class="fa fa-plus-circle"></i> Agregar</a></li>
+            <li><a href="lista-evento.php"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
+            <li><a href="crear-evento.php"><i class="fa fa-plus-circle"></i> Agregar</a></li>
           </ul>
-        </li>
+        </li> 
+      
 
         <li class="treeview">
           <a href="#">
@@ -53,8 +56,8 @@
             <span>Categoría Eventos</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
-            <li><a href="#"><i class="fa fa-plus-circle"></i> Agregar</a></li>
+            <li><a href="lista-categoria.php"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
+            <li><a href="crear-categoria.php"><i class="fa fa-plus-circle"></i> Agregar</a></li>
           </ul>
         </li>
 
@@ -80,17 +83,18 @@
           </ul>
         </li>
 
-        
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-user"></i>
-            <span>Administradores</span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
-            <li><a href="#"><i class="fa fa-plus-circle"></i> Agregar</a></li>
-          </ul>
-        </li>
+        <?php if($_SESSION['nivel'] == 1): ?>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-user"></i>
+              <span>Administradores</span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="lista-admin.php"><i class="fa fa-list-ul"></i> Ver Todos</a></li>
+              <li><a href="crear-admin.php"><i class="fa fa-plus-circle"></i> Agregar</a></li>
+            </ul>
+          </li>
+        <?php endif; ?>
           
         <li class="treeview">
           <a href="#">
