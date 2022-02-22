@@ -56,7 +56,7 @@
         </nav>
         <div class="informacion-evento">
           <div class="clearfix">
-            <p class="fecha"><i class="fa-solid fa-calendar"></i> 10-12 Dic</p>
+            <p class="fecha"><i class="fa-solid fa-calendar"></i> 8-10 Dic</p>
             <p class="ciudad"><i class="fa-solid fa-location-dot"></i> Buenos Aires, ARG</p>
           </div>
           <h1 class="nombre-sitio">BSAWebCamp</h1>

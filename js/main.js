@@ -131,6 +131,13 @@
                 document.getElementById(diasElegidos[i]).style.display='block';
             }
 
+            if(diasElegidos.length == 0){
+                var todosDias = document.getElementsByClassName('contenido-dia');
+                for(var i=0; i<todosDias.length; i++){
+                    todosDias[i].style.display = 'none';
+                }
+            }
+
         }
     });
 })();

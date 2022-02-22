@@ -36,7 +36,10 @@
 
 <!-- AdminLTE for demo purposes -->
 <script src="js/demo.js"></script>
-<script src="js/app.js"></script>
 <script src="js/login_ajax.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="js/icheck.min.js"></script>
+<script src="../js/cotizador.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html> 

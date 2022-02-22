@@ -15,6 +15,7 @@ html {
   color: #222;
   font-size: 1em;
   line-height: 1.4;
+  scroll-behavior: smooth;
 }
 
 /*
@@ -908,6 +909,13 @@ div.paquetes .tabla-precio input{
 }.contenido-dia > div label time{
   color: #fe4918;
   font-weight: bold;
+}
+
+.contenido-dia .autor{
+  font-weight: bold;
+  
+  text-transform: uppercase;
+  
 }
 
 /* Resumen registro */
