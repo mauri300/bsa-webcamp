@@ -1,5 +1,7 @@
 <?php if(isset($_POST['submit'])):  // Se comprueba que se reciba de un boton submit
+        
         var_dump($_POST);
+       
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
         $email = $_POST['email'];
@@ -7,9 +9,9 @@
         $total = $_POST['total_pedido'];
         $fecha = date('Y-m-d H:i:s');
         echo $total;
-        // Pedidos
-        $camisas = $_POST['pedido_camisas'];
-        $etiquetas = $_POST['pedido_etiquetas'];
+        //Camisas y etiquetas
+        $camisas = $_POST['pedido_extra']['camisas']['cantidad'];
+        $etiquetas = $_POST['pedido_extra']['etiquetas']['cantidad'];
         $boletos = $_POST['boletos'];
         include_once 'includes/funciones/funciones.php';
         $pedido = productos_json($boletos, $camisas, $etiquetas);
@@ -17,8 +19,9 @@
         $registro = eventos_json($eventos);
         try{
             require_once('includes/funciones/bd_conexion.php'); //Se crea la conexion
-            $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado) VALUES (?,?,?,?,?,?,?,?)"); // Prepare para la insercion en base de datos
+            $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado, pagado) VALUES (?,?,?,?,?,?,?,?,0)"); // Prepare para la insercion en base de datos
             $stmt->bind_param("ssssssis", $nombre, $apellido, $email, $fecha, $pedido, $registro, $regalo, $total);
+            //echo $stmt;
             $stmt->execute();
             $stmt->close();
             $conn->close();

@@ -71,6 +71,7 @@ $(document).ready(function(){
 
         var id = $(this).attr('data-id');
         var tipo = $(this).attr('data-tipo');
+        //console.log(id);
         swal({
             title: '¿Estás seguro?',
             text: "Si eliminas el registro no podrás recuperarlo",
@@ -81,7 +82,8 @@ $(document).ready(function(){
             confirmButtonText: '¡Si, eliminar!',
             cancelButtonText: 'Cancelar'
         }).then(function(result) {
-            //console.log(result);
+            console.log(result);
+            console.log(tipo);
             if(result.value){
                 $.ajax({
                     type: 'post', 

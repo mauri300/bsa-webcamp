@@ -11,8 +11,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Crear Categorías de Eventos
-        <small>llena el formulario para crear una categoría</small>
+        Crear registro de usuario manual
+        <small>llena el formulario para crear usuario registrado</small>
       </h1>
     </section>
 
@@ -24,7 +24,7 @@
           <!-- Default box -->
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Crear Categoría</h3>
+              <h3 class="box-title">Crear Usuario</h3>
 
               
             </div>
@@ -62,9 +62,10 @@
                                     <li>Todos los talleres</li>
                                   </ul>
                                   <div class="orden">
-                                      <label for="pase_dia">Boletos deseados:</label>
-                                      <input type="number" class="form-control" min="0" id="pase_dia" size="3" name="boletos[]" placeholder="0">
-                                  </div>
+                                    <label for="pase_dia">Boletos deseados:</label>
+                                    <input type="number" min="0" id="pase_dia" size="3" name="boletos[un_dia][cantidad]" placeholder="0">
+                                    <input type="hidden" value="30" name="boletos[un_dia][precio]">
+                                </div>
                                 </div>
                               </li>
                       
@@ -77,9 +78,10 @@
                                     <li>Todos los talleres</li>
                                   </ul>
                                   <div class="orden">
-                                      <label for="pase_completo">Boletos deseados:</label>
-                                      <input type="number" class="form-control" min="0" id="pase_completo" size="3" name="boletos[]" placeholder="0">
-                                  </div>
+                                    <label for="pase_completo">Boletos deseados:</label>
+                                    <input type="number" min="0" id="pase_completo" size="3" name="boletos[completo][cantidad]" placeholder="0">
+                                    <input type="hidden" value="50" name="boletos[completo][precio]">
+                                </div>
                                 </div>
                               </li>
                       
@@ -92,9 +94,10 @@
                                     <li>Todos los talleres</li>
                                   </ul>
                                   <div class="orden">
-                                      <label for="pase_dosdias">Boletos deseados:</label>
-                                      <input type="number" class="form-control" min="0" id="pase_dosdias" size="3" name="boletos[]" placeholder="0">
-                                  </div>
+                                    <label for="pase_dosdias">Boletos deseados:</label>
+                                    <input type="number" min="0" id="pase_dosdias" size="3" name="boletos[2dias][cantidad]" placeholder="0">
+                                    <input type="hidden" value="45" name="boletos[2dias][precio]">
+                                </div>
                                 </div>
                               </li>
                             </ul>
@@ -158,7 +161,7 @@
                                               
                                               <?php foreach($evento_dia as $evento){ ?>
                                                   <label>
-                                                      <input type="checkbox" class="minimal" name="registro[]" id="<?php echo $evento['id']; ?>" value="<?php echo $evento['id']; ?>" >
+                                                      <input type="checkbox" class="minimal" name="registro_evento[]" id="<?php echo $evento['id']; ?>" value="<?php echo $evento['id']; ?>" >
                                                       <time><?php echo $evento['hora']; ?></time> <?php echo $evento['nombre_evento']; ?>
                                                       <br>
                                                       <span class="autor"><?php echo $evento['nombre_invitado'] . " " . $evento['apellido_invitado']; ?></span>
@@ -181,12 +184,14 @@
                             <div class="extras col-md-6">
                                 <div class="orden">
                                     <label for="camisa_evento">Camisa del evento $10 <small>(promoción 7% dto.)</small></label>
-                                    <input type="number" class="form-control" min="0" id="camisa_evento" name="pedido_camisas" size="3" placeholder="0">
+                                    <input type="number" min="0" id="camisa_evento" name="pedido_extra[camisas][cantidad]" size="3" placeholder="0">
+                                    <input type="hidden" value="10" name="pedido_extra[camisas][precio]">
                                 </div><!--.orden-->
 
                                 <div class="orden">
                                     <label for="etiquetas">Paquete de 10 etiquetas a $2 <small>(HTML5, CSS3, JavaScript)</small></label>
-                                    <input type="number" class="form-control" min="0" id="etiquetas" name="pedido_etiquetas" size="3" placeholder="0">
+                                    <input type="number" min="0" id="etiquetas" name="pedido_extra[etiquetas][cantidad]" size="3" placeholder="0">
+                                    <input type="hidden" value="2" name="pedido_extra[etiquetas][precio]">
                                 </div><!--.orden-->
                                 <div class="orden">
                                     <label for="regalo">Selecciones un regalo</label>

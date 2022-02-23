@@ -45,7 +45,7 @@
                         $sql .= " JOIN regalos ";
                         $sql .= " ON registrados.regalo = regalos.ID_regalo ";
                         $resultado = $conn->query($sql);
-                        echo $sql;
+                        //echo $sql;
                       } catch (Exception $e) {
                         $error = $e->getMessage();
                         echo $error;
@@ -88,7 +88,7 @@
                               $eventos_resultado = $registrado['talleres_registrados'];
                               $talleres = json_decode($eventos_resultado, true);
                               $talleres = implode("', '", $talleres['eventos']);
-                              $sql_talleres = "SELECT nombre, fecha_evento, hora_evento FROM eventos WHERE clave IN ('$talleres')";
+                              $sql_talleres = "SELECT nombre, fecha_evento, hora_evento FROM eventos WHERE (clave IN ('$talleres') OR evento_id IN ('$talleres'))";
                               
                               $resultado_talleres = $conn->query($sql_talleres);
 
@@ -96,17 +96,17 @@
                                 echo $eventos['nombre'] . " " . $eventos['fecha_evento'] . " " . $eventos['hora_evento'] . "<br>";
                               }
                               
-
+ 
                             ?>
                           </td>
                           <td><?php echo $registrado['nombre_regalo']; ?></td>
-                          <td>$ <?php echo $registrado['total_pagado']; ?></td>
+                          <td>$ <?php echo (float)$registrado['total_pagado']; ?></td>
                           <td>
-                            <a href="editar-registro.php?id=<?php echo $registrado['ID_registrado'] ?>" class="btn bg-orange btn-flat margin">
+                            <a href="editar-registro.php?id=<?php echo $registrado['ID_Registrado']; ?>" class="btn bg-orange btn-flat margin">
                               <i class="fa fa-pencil"></i>
                             </a>
 
-                            <a href="#" data-id="<?php echo $registrado['ID_registrado']; ?>" data-tipo="registrado" class="btn bg-maroon btn-flat margin borrar_registro">
+                            <a href="#" data-id="<?php echo $registrado['ID_Registrado']; ?>" data-tipo="registrado" class="btn bg-maroon btn-flat margin borrar_registro">
                               <i class="fa fa-trash"></i>
                             </a>
 
