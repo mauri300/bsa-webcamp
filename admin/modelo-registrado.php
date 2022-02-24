@@ -86,7 +86,7 @@ if($_POST['registro'] == 'actualizar'){
     die(json_encode($respuesta));
 }
 
- 
+ /*
 if($_POST['registro'] == 'eliminar'){
     $id_borrar = $_POST['id'];
     try {
@@ -115,3 +115,4 @@ if($_POST['registro'] == 'eliminar'){
     }
     die(json_encode($respuesta));
 }
+*/

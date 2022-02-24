@@ -198,7 +198,7 @@ $(function(){
         });
     }   
     // Cuenta regresiva
-    $('.cuenta-regresiva').countdown('2023/1/10 09:00:00', function(event){
+    $('.cuenta-regresiva').countdown('2023/8/12 09:00:00', function(event){
         $('#dias').html(event.strftime('%D'));
         $('#horas').html(event.strftime('%H'));
         $('#minutos').html(event.strftime('%M'));

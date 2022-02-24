@@ -106,7 +106,7 @@
                               <i class="fa fa-pencil"></i>
                             </a>
 
-                            <a href="#" data-id="<?php echo $registrado['ID_Registrado']; ?>" data-tipo="registrado" class="btn bg-maroon btn-flat margin borrar_registro">
+                            <a href="#" data-id="<?php echo $registrado['ID_Registrado']; ?>" data-tipo="reg-elim" class="btn bg-maroon btn-flat margin borrar_registro">
                               <i class="fa fa-trash"></i>
                             </a>
 
