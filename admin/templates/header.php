@@ -32,6 +32,8 @@
   <link rel="stylesheet" href="css/icheck.css">
 
   <link rel="stylesheet" href="css/sweetalert2.min.css">
+  
+  <link rel="stylesheet" href="css/morris.css">
 
   <link rel="stylesheet" href="css/admin.css">
 

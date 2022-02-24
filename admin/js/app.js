@@ -60,6 +60,21 @@ $(document).ready(function () {
     $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
         checkboxClass: 'icheckbox_minimal-blue',
         radioClass   : 'iradio_minimal-blue'
-    })
+    });
+
+    $.getJSON('servicios-registrados.php', function(data){
+        console.log(data);
+        var line = new Morris.Line({
+            element: 'grafica-registros',
+            resize: true,
+            data: data,
+            xkey: 'fecha',
+            ykeys: ['cantidad'],
+            labels: ['Item 1'],
+            lineColors: ['#3c8dbc'],
+            hideHover: 'auto'
+        });
+    });
+    
   
 })
